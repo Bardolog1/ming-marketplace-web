@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Loading from "../Loading/Loading";
+import Loading from "../ui/Loading/Loading";
 import ProductCard from '../ProductCard/ProductCard';
 
 const styles = {

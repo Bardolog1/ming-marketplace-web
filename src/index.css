@@ -1,42 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
-:root{
-    
-    --primary-color-fixed: #ffef0a;
-    --primary-color-text-fixed: #333;
-    --secondary-color-text-fixed: #6b6b6b;
-    --primary-color-text-hover-fixed: #4d4c4b;
-    --navbar-color-item-text-fixed: #f5f5f5;
-    
-    
-    --body-background: #f5f5f5;
-    --primary-color: #333;
-    
-    
-    
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import "./styles/tokens.css";
+
+/*
+  Puente de compatibilidad: los componentes viejos todavía usan estos
+  nombres. Apuntan a los tokens nuevos de tokens.css para que no quede
+  ningún hex suelto acá. Se van eliminando a medida que cada componente
+  migra a var(--color-*) directamente.
+*/
+:root {
+    --primary-color-fixed: var(--color-primary);
+    --primary-color-text-fixed: var(--color-foreground);
+    --secondary-color-text-fixed: var(--color-foreground-muted);
+    --primary-color-text-hover-fixed: var(--color-primary-hover);
+    --navbar-color-item-text-fixed: var(--color-on-primary);
+
+    --body-background: var(--color-background);
+    --primary-color: var(--color-foreground);
+    --primary-color-text-contrast: var(--color-primary);
 }
 
-[data-theme='dark']{
-    --body-background: rgb(52,52,52);
-    --primary-color: #f5f5f5;
-    --primary-color-text-contrast: #ffef0a;
-
-}
-
-[data-theme='light']{
-    --body-background: #f5f5f5;
-    --primary-color: #333;
-    --primary-color-text-contrast: #000000;
-}
-
-*{
-    font-family: "Poppins", sans-serif;
+* {
+    font-family: "Inter", sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    background-color: var(--body-background);
-    color: var(--primary-color);
-    transition: background-color 0.6s ease, color 0.6s ease;
+body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }

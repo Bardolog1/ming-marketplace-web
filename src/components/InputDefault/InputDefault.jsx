@@ -14,8 +14,8 @@ const Input = styled.input`
 
   &.ambiented {
     background-color: transparent;
-    border-bottom: 1px solid var(--primary-color);
-    color: var(--primary-color);
+    border-bottom: 1px solid var(--color-foreground);
+    color: var(--color-foreground);
   }
 
   &.rounded:focus,
@@ -26,8 +26,8 @@ const Input = styled.input`
   &:focus,
   &:valid {
     outline: none;
-    border: 1px solid var(--primary-color-text-contrast);
-   
+    border: 1px solid var(--color-primary);
+
   }
 
   &:focus ~ label,
@@ -35,17 +35,17 @@ const Input = styled.input`
     top: 0;
     left: 2%;
     width: auto;
-    background-color: var(--body-background);
+    background-color: var(--color-background);
     padding: 0 5%;
     border-radius: 20px;
     transform: translate(0, 0);
     font-size: 0.8em;
-    color: var(--primary-color-text-contrast);
+    color: var(--color-primary);
     z-index: 1;
   }
-  
+
   &.error {
-    border: 1px solid #FF4848;
+    border: 1px solid var(--color-danger);
   }
   
  
@@ -55,7 +55,7 @@ const Input = styled.input`
 const Label = styled.label`
   font-size: 0.8rem;
   position: absolute;
-  color: var(--secondary-color-text-fixed);
+  color: var(--color-foreground-muted);
   left: 50%;
   top: 50%;
   width: auto;
@@ -74,7 +74,7 @@ const styles = {
       position: 'absolute',
       left: '0.5rem',
       bottom: '-30%',
-      color: '#FF4848',
+      color: 'var(--color-danger)',
       fontSize: '0.8rem',
   }
 }

@@ -1,53 +1,109 @@
-.navbar{
-    padding: 15px 0;
-    transition: all 0.5s ease;
-   
-}
-
-.with-color{
-    background-color: var(--primary-color-fixed);
-}
-
-.without-color{
-    background-color: RGBA(0, 0, 0, 0.3);
-}
-
-.container-navbar{
+.navbar {
+    height: 64px;
     display: flex;
-    justify-content: space-between;
-    flex-direction: row;
     align-items: center;
-    padding: 0 20px;
+    transition: background-color 200ms ease, box-shadow 200ms ease;
 }
 
-
-
-.left{
-    width: 20%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.with-color {
+    background-color: var(--color-surface);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
-.left .logo{
+.without-color {
+    background-color: color-mix(in srgb, var(--gray-900) 30%, transparent);
+    box-shadow: none;
+}
+
+.container-navbar {
     width: 100%;
-    height: 5vw; 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
- .left .logo .logoSVG{
-    width: 80%;
-}
-
- .right{
-    width: 60%;
+    height: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
     align-items: center;
-    margin: 0 20px;
+    gap: 24px;
+    padding: 0 24px;
 }
 
+.left {
+    flex-shrink: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.left .logo {
+    /* Sin panel: el texto "Ming" ya se dibuja con --color-primary (ver
+       Logo.css), así que se adapta solo al tema sin necesitar un fondo
+       tonal para separarse del bar transparente/blanco. */
+    height: 44px;
+    width: auto;
+    display: flex;
+    align-items: center;
+}
+
+.left .logo a {
+    /* El <Link> (<a>) es inline por defecto y corta la cadena de
+       height:100% antes de llegar al logo — sin esto el ícono renderiza
+       a su tamaño nativo en vez de encajar en el navbar. */
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.left .logo .logoSVG {
+    /* Ahora es un <img> real (assets PNG de marca en public/images/out/),
+       escala por aspecto correctamente con height fijo + width:auto. */
+    height: 100%;
+    width: auto;
+}
+
+@media (max-width: 768px) {
+    .left .logo {
+        height: 38px;
+    }
+}
+
+.nav-search {
+    flex: 1 1 auto;
+    min-width: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-search .search-bar {
+    width: 100%;
+    max-width: 480px;
+}
+
+.right {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        height: 56px;
+    }
+
+    .container-navbar {
+        padding: 0 16px;
+        gap: 12px;
+    }
+
+    .left .logo {
+        height: 28px;
+    }
+
+    .right {
+        gap: 4px;
+    }
+}

@@ -1,7 +1,7 @@
 .button-default{
     display: flex;
-    background-color: var(--primary-color-fixed);
-    color: var(--primary-color-text-fixed);
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
     border: none;
     border-radius: 5px;
     cursor: pointer;

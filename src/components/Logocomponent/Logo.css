@@ -1,0 +1,22 @@
+.logo-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 100%;
+    /* Sin esto, el item flex no baja de la altura nativa del ícono (128px)
+       aunque height:100% diga otra cosa — mínimo automático de flexbox. */
+    min-height: 0;
+}
+
+.logo-mark-icon {
+    height: 100%;
+    width: auto;
+}
+
+.logo-mark-text {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--violet-100);
+}

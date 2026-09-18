@@ -1,34 +1,23 @@
-import React from 'react';
-import styled from 'styled-components'
+import { useState } from 'react';
 import BannerSearcher from '../../components/BannerSearcher/BannerSearcher';
+import BestProductsCarousel from '../../components/BestProductsCarousel/BestProductsCarousel';
 import CategoriesContainer from '../../components/CategoriesContainer/CategoriesContainer';
+import ProductsContainer from '../../components/ProductsContainer/ProductsContainer';
 
-
-const Container = styled.div`
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-`;
-
-
-const HomePage = ({...props}) => {
+const HomePage = () => {
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   return (
     <>
-     <Container {...props} >
-        <BannerSearcher />
-      </Container>
-      <CategoriesContainer></CategoriesContainer>
-      
-    
+      <BannerSearcher />
+      <BestProductsCarousel />
+      <CategoriesContainer
+        selectedCategory={selectedCategory}
+        onSelectCategory={setSelectedCategory}
+      />
+      <ProductsContainer category={selectedCategory} />
     </>
-     
-  
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

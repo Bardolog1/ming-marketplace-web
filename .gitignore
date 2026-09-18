@@ -29,5 +29,9 @@ dist-ssr
 
 # All package-lock
 package-lock.json
+.impeccable
+.claude
+.github
+
     
 

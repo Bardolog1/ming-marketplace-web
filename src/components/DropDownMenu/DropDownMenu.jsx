@@ -4,20 +4,21 @@ import styled from "styled-components";
 
 const DropDown = styled.div`
   position: relative;
-  background-color: var(--body-background);
-  border-radius: 10px;
-  padding: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: var(--color-background);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--color-foreground) 20%, transparent);
   justify-content: center;
   display: flex;
 
   & h3 {
     width: 100%;
     text-align: center;
+    font-family: var(--font-display), "Inter", sans-serif;
     font-size: 1rem;
     font-weight: 700;
-    padding: 10px 0;
-    color: var(--primary-color);
+    padding: 8px 0;
+    color: var(--color-foreground);
     line-height: 1rem;
   }
 
@@ -28,16 +29,16 @@ const DropDown = styled.div`
     left: 20%;
     height: 20px;
     width: 20px;
-    background-color: var(--body-background);
+    background-color: var(--color-background);
     transform: rotate(45deg);
-    transition: all 0.5s ease;
+    transition: background-color 200ms ease;
   }
 
   &.open {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
-    transition: all 0.5s ease;
+    transition: opacity 200ms ease, transform 200ms ease;
   }
 
   &.close {
@@ -45,13 +46,13 @@ const DropDown = styled.div`
 
     visibility: hidden;
     transform: translateY(-20px);
-    transition: all 0.5s ease;
+    transition: opacity 200ms ease, transform 200ms ease;
   }
 `;
 
 const styles = {
   childrenDropDown: {
-    borderTop: "1px solid rgba(0, 0, 0, 0.05)",
+    borderTop: "1px solid var(--color-border-subtle)",
   },
 };
 

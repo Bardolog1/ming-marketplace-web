@@ -1,72 +1,123 @@
  li {
     list-style: none;
-    display: inline;
-    padding: 10px;
-    
+    display: inline-flex;
+    align-items: center;
+    padding: 4px;
 }
 
 .nav-item{
+    /* Marketplace-style compact nav: no more bubbly pill hover/click —
+       an understated underline indicator instead (see .nav-item::after). */
     position: relative;
-    display: inline;
-    transition: transform 0.5s ease, background-color 0.5s ease, border-radius 0.5s ease;
-    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
     height: 100%;
-    border-radius: 20px;
+    padding: 8px 4px;
+    cursor: pointer;
+}
+
+.nav-item .iconItem,
+.nav-item icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    font-size: 1.0625rem;
+}
+
+.icon-badge-wrap {
+    position: relative;
+    display: inline-flex;
+}
+
+.nav-badge {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    border-radius: 8px;
+    background-color: var(--color-accent);
+    color: var(--color-on-accent);
+    font-family: "Inter", sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    line-height: 16px;
+    text-align: center;
 }
 
 .nav-link{
-    color: var(--navbar-color-item-text-fixed);
+    /* Sobre la imagen del hero con overlay oscuro (sin scroll), el texto
+       debe quedar claro en ambos temas — no es texto "sobre --color-primary",
+       por eso --gray-0 fijo y no --color-on-primary (que rota con el tema). */
+    color: var(--gray-0);
+    font-family: var(--font-display), "Inter", sans-serif;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.9375rem;
+    letter-spacing: 0.01em;
     text-decoration: none;
     position: relative;
-    
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 0 10px;
 }
 
-.nav-item  .navScroll{
-    color: var(--primary-color-text-fixed);
+.nav-link.navScroll{
+    color: var(--color-foreground);
 }
 
-
-
-.nav-item:hover{
-    transform: scale(1.1);
-    background-color: rgba(255, 255, 255, 0.3);
-    
+.nav-link:focus-visible{
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+    border-radius: 4px;
 }
 
+/* Grupo "tuyo" (cuenta / carrito): último ítem del bloque .right que
+   asumimos son cuenta+carrito según el array de items de App.jsx — un
+   separador fino y sutil los distingue de la navegación principal. */
+.right > .nav-link:nth-last-of-type(2)::before {
+    content: "";
+    width: 1px;
+    height: 24px;
+    margin-right: 6px;
+    background-color: color-mix(in srgb, currentColor 25%, transparent);
+}
+
+/* Indicador de estado: línea corta en --color-accent debajo del texto,
+   en vez del fondo tipo píldora — más compacto y "real e-commerce". */
 .nav-item::after{
     content: "";
     position: absolute;
-    height: 0%;
-    width: 0%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.4);
-    border-radius: 20px;
-    z-index: -1;
-    
-   
+    left: 10px;
+    right: 10px;
+    bottom: 4px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 180ms ease;
 }
 
-.animation::after {
-    animation: grow 0.5s ease;
+.nav-item:hover::after{
+    transform: scaleX(0.55);
 }
 
-.active{
-    border-radius: 20px;
-    height: 100%;
-    background-color: rgba(255, 255, 1, 0.3);
+.nav-item.active::after{
+    transform: scaleX(1);
 }
 
-@Keyframes grow {
-    0%{
-        width: 0%;
-        height: 0%;
-    }
-    100%{
-       width: 100%;
-        height: 100%;
+.nav-item:hover{
+    opacity: 0.85;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nav-item,
+    .nav-item::after,
+    .nav-link {
+        transition: none !important;
     }
 }

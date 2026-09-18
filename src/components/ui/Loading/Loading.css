@@ -6,15 +6,15 @@
   --box-border-radius: 15%;
 }
 
-.container {
+.loading-container {
     width: var(--container-size);
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
   }
-  
-  .📦 {
+
+  .box {
     width: var(--box-size);
     height: var(--box-size);
     position: relative;
@@ -22,7 +22,7 @@
     transform-origin: -50% center;
     border-radius: var(--box-border-radius);
   }
-  .📦:after {
+  .box:after {
     content: "";
     width: 100%;
     height: 100%;
@@ -33,51 +33,51 @@
     border-radius: var(--box-border-radius);
     box-shadow: 0px 0px 10px 3px rgba(255, 251, 28, 0.4);
   }
-  .📦:nth-child(1) {
+  .box:nth-child(1) {
             animation: slide var(--duration) ease-in-out infinite alternate;
   }
-  .📦:nth-child(1):after {
+  .box:nth-child(1):after {
             animation: color-change var(--duration) ease-in-out infinite alternate;
   }
-  .📦:nth-child(2) {
+  .box:nth-child(2) {
             animation: flip-1 var(--duration) ease-in-out infinite alternate;
   }
-  .📦:nth-child(2):after {
-  
+  .box:nth-child(2):after {
+
             animation: squidge-1 var(--duration) ease-in-out infinite alternate;
   }
-  .📦:nth-child(3) {
+  .box:nth-child(3) {
             animation: flip-2 var(--duration) ease-in-out infinite alternate;
   }
-  .📦:nth-child(3):after {
+  .box:nth-child(3):after {
             animation: squidge-2 var(--duration) ease-in-out infinite alternate;
   }
-  .📦:nth-child(4) {
+  .box:nth-child(4) {
             animation: flip-3 var(--duration) ease-in-out infinite alternate;
   }
-  .📦:nth-child(4):after {
+  .box:nth-child(4):after {
             animation: squidge-3 var(--duration) ease-in-out infinite alternate;
   }
-  .📦:nth-child(5) {
+  .box:nth-child(5) {
             animation: flip-4 var(--duration) ease-in-out infinite alternate;
   }
-  .📦:nth-child(5):after {
+  .box:nth-child(5):after {
             animation: squidge-4 var(--duration) ease-in-out infinite alternate;
   }
-  .📦:nth-child(2):after {
+  .box:nth-child(2):after {
     background-color: rgb(255, 221, 28);
   }
-  .📦:nth-child(3):after {
+  .box:nth-child(3):after {
     background-color: #fdee1f;
   }
-  .📦:nth-child(4):after {
+  .box:nth-child(4):after {
     background-color: #f7fb22;
   }
-  .📦:nth-child(5):after {
+  .box:nth-child(5):after {
     background-color: #f7fb23;
   }
-  
-  
+
+
   @keyframes slide {
     0% {
       background-color: #ffae17;
@@ -88,8 +88,8 @@
       transform: translateX(calc(var(--container-size) - (var(--box-size) * 1.25)));
     }
   }
- 
-   
+
+
   @keyframes color-change {
     0% {
       background-color: #ff9a17;
@@ -98,7 +98,7 @@
       background-color: #f7fb23;
     }
   }
- 
+
   @keyframes flip-1 {
     0%, 15% {
       transform: rotate(0);
@@ -107,7 +107,7 @@
       transform: rotate(-180deg);
     }
   }
-  
+
   @keyframes squidge-1 {
     5% {
       transform-origin: center bottom;
@@ -139,7 +139,7 @@
       transform: rotate(-180deg);
     }
   }
-  
+
   @keyframes squidge-2 {
     20% {
       transform-origin: center bottom;
@@ -171,7 +171,7 @@
       transform: rotate(-180deg);
     }
   }
- 
+
   @keyframes squidge-3 {
     35% {
       transform-origin: center bottom;
@@ -203,8 +203,8 @@
       transform: rotate(-180deg);
     }
   }
-   
-    
+
+
   @keyframes squidge-4 {
     50% {
       transform-origin: center bottom;

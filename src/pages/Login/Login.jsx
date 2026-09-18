@@ -39,7 +39,7 @@ const Login = ({ ...props }) => {
 
   const styles = {
     textButton: {
-      color: "var(--primary-color-fixed)",
+      color: "var(--color-primary)",
       fontWeight: "bold",
       cursor: "pointer",
     },

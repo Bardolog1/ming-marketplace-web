@@ -78,7 +78,12 @@ const NavBarItem = ({
           {props.titleActive === "true" ? (
             title
           ) : (
-            <icon className={props.icon ? props.icon : ""} />
+            <span className="icon-badge-wrap">
+              <icon className={props.icon ? props.icon : ""} />
+              {props.badge !== undefined && (
+                <span className="nav-badge">{props.badge}</span>
+              )}
+            </span>
           )}
         </li>{" "}
         {props.hasDropdown && (

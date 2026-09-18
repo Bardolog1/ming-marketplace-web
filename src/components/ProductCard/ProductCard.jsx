@@ -1,28 +1,31 @@
 import React from "react";
 import "./ProductCard.css";
 
+const ProductCard = ({ productName, unitPrice, nameImage, featured, originalPrice }) => {
+  const onSale = originalPrice != null && originalPrice > unitPrice;
+  const discountPct = onSale
+    ? Math.round((1 - unitPrice / originalPrice) * 100)
+    : null;
 
-
-
-const ProductCard = ({...props}) => {
   return (
-    <div className="card">
+    <div className={`card${featured ? " featured" : ""}`}>
       <div className="imgBox">
-        <img
-          src={props.nameImage}
-          alt={props.productName}
-          className="mouse"
-        />
+        <img src={nameImage} alt={productName} className="mouse" />
+        {featured && <span className="badge">Destacado</span>}
+        {onSale && <span className="badge badge-sale">-{discountPct}%</span>}
       </div>
 
       <div className="contentBox">
-        <h3>{props.productName}</h3>
+        <h3>{productName}</h3>
         <h2 className="price">
-          {props.unitPrice}<small>USD</small> 
+          {unitPrice} <small>USD</small>
+          {onSale && <s className="price-original">{originalPrice}</s>}
         </h2>
-        <a href="#" className="buy">
-          Buy Now
-        </a>
+        {/* No real cart/checkout flow yet — a real, non-navigating button
+            instead of a dead "#" link. */}
+        <button type="button" className="buy">
+          Comprar
+        </button>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./NavBar.css";
 import NavBarItem from "../NavBarItem/NavBarItem.jsx";
 import SearchBar from "../SearchBar/SearchBar.jsx";
-import ToggleButton from "../ToogleAmbient/ToogleButton.jsx";
+import ThemeToggle from "../ui/ThemeToggle/ThemeToggle.jsx";
 import { Link } from "react-router-dom";
 import Logo from "../Logocomponent/Logo.jsx";
 
@@ -67,14 +67,15 @@ const NavBar = ({ items, ...props }) => {
             </div>
           </div>
 
+          {props.searchBar ? (
+            <div className="nav-search">
+              <SearchBar navScroll={navBarBackground}></SearchBar>
+            </div>
+          ) : null}
+
           <ul className="right">
-            {props.searchBar ? (
-              <li className="search-bar">
-                <SearchBar navScroll={navBarBackground}></SearchBar>
-              </li>
-            ) : null}
             {items.map((item) => (
-              
+
                 <NavBarItem
                   activeItem={activeItem}
                   setItemActive={setItemActive}
@@ -89,13 +90,13 @@ const NavBar = ({ items, ...props }) => {
                   navScroll={navBarBackground}
                   hasDropdown={item.hasDropdown}
                   dropdownItems={item.dropdownItems}
-                  
+                  badge={item.badge}
                 />
           
             ))}
             {props.darkMode ? (
               <li className="toggle">
-                <ToggleButton> </ToggleButton>
+                <ThemeToggle />
               </li>
             ) : null}
           </ul>

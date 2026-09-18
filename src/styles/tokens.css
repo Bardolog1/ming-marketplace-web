@@ -1,0 +1,155 @@
+/*
+  Ming — Design Tokens
+  Fuente única de verdad para color. No hardcodear hex en componentes:
+  usar siempre estas variables (var(--color-*)).
+  Tema oscuro se activa vía [data-theme="dark"] en <body> (ver ThemeToggle).
+*/
+
+:root {
+  /* ---- Escala violeta (marca / primary) ---- */
+  --violet-50: #f5f3ff;
+  --violet-100: #ede9fe;
+  --violet-200: #ddd6fe;
+  --violet-300: #c4b5fd;
+  --violet-400: #a78bfa;
+  --violet-500: #8b5cf6;
+  --violet-600: #7c3aed;
+  --violet-700: #6d28d9;
+  --violet-800: #5b21b6;
+  --violet-900: #4c1d95;
+  --violet-950: #2e1065;
+
+  /* ---- Escala verde (accent / transacción-éxito) ---- */
+  --green-50: #f0fdf4;
+  --green-100: #dcfce7;
+  --green-200: #bbf7d0;
+  --green-300: #86efac;
+  --green-400: #4ade80;
+  --green-500: #22c55e;
+  --green-600: #16a34a;
+  --green-700: #15803d;
+  --green-800: #166534;
+  --green-900: #14532d;
+
+  /* ---- Escala roja (danger) ---- */
+  --red-50: #fef2f2;
+  --red-100: #fee2e2;
+  --red-400: #f87171;
+  --red-500: #ef4444;
+  --red-600: #dc2626;
+  --red-700: #b91c1c;
+
+  /* ---- Escala ámbar (warning) ---- */
+  --amber-50: #fffbeb;
+  --amber-100: #fef3c7;
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  --amber-600: #d97706;
+
+  /* ---- Escala azul (info) ---- */
+  --blue-50: #eff6ff;
+  --blue-400: #60a5fa;
+  --blue-500: #3b82f6;
+  --blue-600: #2563eb;
+
+  /* ---- Neutrales ---- */
+  --gray-0: #ffffff;
+  --gray-50: #fafafa;
+  --gray-100: #f4f4f5;
+  --gray-200: #e4e4e7;
+  --gray-300: #d4d4d8;
+  --gray-400: #a1a1aa;
+  --gray-500: #71717a;
+  --gray-600: #52525b;
+  --gray-700: #3f3f46;
+  --gray-800: #27272a;
+  --gray-900: #18181b;
+  --gray-950: #0f0a1a;
+
+  /* =========================================================
+     Tokens semánticos — LIGHT (default)
+     Estos son los que se usan en componentes, nunca los de arriba directo.
+     ========================================================= */
+  --color-primary: var(--violet-600);
+  --color-primary-hover: var(--violet-700);
+  --color-primary-active: var(--violet-800);
+  --color-on-primary: var(--gray-0);
+
+  --color-secondary: var(--violet-400);
+  --color-on-secondary: var(--violet-950);
+
+  --color-accent: var(--green-600);
+  --color-accent-hover: var(--green-700);
+  --color-on-accent: var(--gray-0);
+
+  --color-success: var(--green-600);
+  --color-success-bg: var(--green-50);
+  --color-warning: var(--amber-600);
+  --color-warning-bg: var(--amber-50);
+  --color-danger: var(--red-600);
+  --color-danger-bg: var(--red-50);
+  --color-info: var(--blue-600);
+  --color-info-bg: var(--blue-50);
+
+  --color-background: var(--violet-50);
+  --color-surface: var(--gray-0);
+  --color-surface-raised: var(--gray-0);
+
+  --color-foreground: var(--gray-900);
+  --color-foreground-muted: var(--gray-500);
+  --color-foreground-on-primary: var(--gray-0);
+
+  --color-border: var(--violet-200);
+  --color-border-subtle: var(--gray-200);
+
+  --color-ring: var(--violet-600);
+  --color-overlay: rgba(24, 24, 27, 0.5);
+
+  /* ---- Tipografía ----
+     Inter se mantiene para texto denso de UI/precios. Space Grotesk se
+     reserva para la zona de marca del navbar (wordmark-adjacent) y
+     encabezados de dropdown — un uso deliberado, no global. */
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+}
+
+/* =========================================================
+   Tokens semánticos — DARK
+   Mismo nombre de variable, valor distinto: los componentes
+   no cambian, solo cambia lo que hay detrás de --color-*.
+   ========================================================= */
+[data-theme="dark"] {
+  --color-primary: var(--violet-400);
+  --color-primary-hover: var(--violet-300);
+  --color-primary-active: var(--violet-200);
+  --color-on-primary: var(--violet-950);
+
+  --color-secondary: var(--violet-500);
+  --color-on-secondary: var(--gray-0);
+
+  --color-accent: var(--green-400);
+  --color-accent-hover: var(--green-300);
+  --color-on-accent: var(--green-900);
+
+  --color-success: var(--green-400);
+  --color-success-bg: rgba(74, 222, 128, 0.12);
+  --color-warning: var(--amber-400);
+  --color-warning-bg: rgba(251, 191, 36, 0.12);
+  --color-danger: var(--red-400);
+  --color-danger-bg: rgba(248, 113, 113, 0.12);
+  --color-info: var(--blue-400);
+  --color-info-bg: rgba(96, 165, 250, 0.12);
+
+  --color-background: var(--gray-950);
+  --color-surface: var(--gray-900);
+  --color-surface-raised: var(--gray-800);
+
+  --color-foreground: var(--violet-100);
+  --color-foreground-muted: var(--gray-400);
+  --color-foreground-on-primary: var(--violet-950);
+
+  --color-border: var(--gray-700);
+  --color-border-subtle: var(--gray-800);
+
+  --color-ring: var(--violet-400);
+  --color-overlay: rgba(0, 0, 0, 0.65);
+}

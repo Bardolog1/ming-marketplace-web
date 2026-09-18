@@ -5,35 +5,40 @@ import styled from "styled-components";
 const StyledLink = styled(Link)`
   text-decoration: none;
   display: flex;
-  margin: 10px auto;
-  padding: 5px 10px;
+  margin: 8px auto;
+  padding: 8px 16px;
+  border-radius: 12px;
+  transition: background-color 200ms ease, color 200ms ease;
 
   & .iconItem {
     max-width: 20px;
-    margin-right: 10px;
+    margin-right: 8px;
     opacity: 0.5;
-    color: var(--primary-color);
+    color: var(--color-foreground);
   }
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    color: var(--primary-color-text-contrast);
-    transition: all 0.5s ease;
+    background-color: color-mix(in srgb, var(--color-foreground) 10%, transparent);
+    color: var(--color-primary);
   }
 
   &:hover .dropdown-item .iconItem {
     opacity: 1;
-    text-shadow: 0 0 10px var(--primary-color-fixed);
+    text-shadow: 0 0 10px var(--color-primary);
   }
 
   &:hover .dropdown-item span {
     cursor: pointer;
-    text-shadow: 0 0 10px var(--primary-color-fixed);
+    text-shadow: 0 0 10px var(--color-primary);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
   }
 
   &:active {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: color-mix(in srgb, var(--color-foreground) 50%, transparent);
     transform: scale(0.98);
   }
 `;
@@ -48,7 +53,7 @@ const DropDownItem = ({ id, text, url, icon, style, ...props }) => {
   const spanTextStyles = {
     fontSize: "0.8rem",
     fontWeight: "400",
-    color: "var(--primary-color)",
+    color: "var(--color-foreground)",
     maxWidth: "200px",
     marginLeft: "10px",
   };
